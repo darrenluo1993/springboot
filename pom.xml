@@ -19,6 +19,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<fine.version>10.0</fine.version>
 		<commons.io.version>2.6</commons.io.version>
 		<commons.collections.version>4.4</commons.collections.version>
 	</properties>
@@ -78,6 +79,16 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-collections4</artifactId>
 			<version>${commons.collections.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finereport</groupId>
+			<artifactId>fine-core</artifactId>
+			<version>${fine.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.finereport</groupId>
+			<artifactId>fine-third</artifactId>
+			<version>${fine.version}</version>
 		</dependency>
 	</dependencies>
 
