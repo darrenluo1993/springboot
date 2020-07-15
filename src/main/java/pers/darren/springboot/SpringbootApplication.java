@@ -25,53 +25,53 @@ import pers.darren.springboot.example.util.JDBCInfo;
 @SpringBootApplication
 public class SpringbootApplication {
 
-	public static void main(final String[] args) {
-		// SpringApplication.run(SpringbootApplication.class, args);
+    public static void main(final String[] args) {
+        // SpringApplication.run(SpringbootApplication.class, args);
 
-		// final SpringApplication application = new
-		// SpringApplication(SpringbootApplication.class);
-		// application.setBannerMode(OFF);
-		// application.run(args);
+        // final SpringApplication application = new
+        // SpringApplication(SpringbootApplication.class);
+        // application.setBannerMode(OFF);
+        // application.run(args);
 
-		final ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(
-				SpringbootApplication.class).listeners(event -> {
-					if (event instanceof ApplicationStartingEvent) {
-						log.info("Spring application is starting!");
-					}
-				}, event -> {
-					if (event instanceof ApplicationEnvironmentPreparedEvent) {
-						log.info("Spring application environment is prepared!");
-					}
-				}, event -> {
-					if (event instanceof ApplicationPreparedEvent) {
-						log.info("Spring application is prepared!");
-					}
-				}, event -> {
-					if (event instanceof ApplicationStartedEvent) {
-						log.info("Spring application is started!");
-					}
-				}, event -> {
-					if (event instanceof ApplicationReadyEvent) {
-						log.info("Spring application is ready!");
-					}
-				}).bannerMode(CONSOLE).lazyInitialization(true).logStartupInfo(true).run(args);
+        final ConfigurableApplicationContext applicationContext = new SpringApplicationBuilder(
+                SpringbootApplication.class).listeners(event -> {
+                    if (event instanceof ApplicationStartingEvent) {
+                        log.info("Spring application is starting!");
+                    }
+                }, event -> {
+                    if (event instanceof ApplicationEnvironmentPreparedEvent) {
+                        log.info("Spring application environment is prepared!");
+                    }
+                }, event -> {
+                    if (event instanceof ApplicationPreparedEvent) {
+                        log.info("Spring application is prepared!");
+                    }
+                }, event -> {
+                    if (event instanceof ApplicationStartedEvent) {
+                        log.info("Spring application is started!");
+                    }
+                }, event -> {
+                    if (event instanceof ApplicationReadyEvent) {
+                        log.info("Spring application is ready!");
+                    }
+                }).bannerMode(CONSOLE).lazyInitialization(true).logStartupInfo(true).run(args);
 
-		log.info(applicationContext.getBean(JDBCInfo.class).toString());
-		log.info(applicationContext.getBean(AcmePropertiesPB.class).toString());
-		log.info(applicationContext.getBean(AcmePropertiesCB.class).toString());
-		log.info(applicationContext.getBean(AcmePropertiesMCB.class).toString());
-		log.info(applicationContext.getBean("acme-pers.darren.springboot.example.util.AcmePropertiesPB").toString());
-		log.info(applicationContext.getBean(AnotherComponent.class).toString());
-		final MysqlDataSource source = applicationContext.getBean(MysqlDataSource.class);
-		log.info(source.getServerName() + source.getPort() + source.getDatabaseName() + source.getUrl());
-		log.info(applicationContext.getBean(WebReportConfig.class).toString());
+        log.info(applicationContext.getBean(JDBCInfo.class).toString());
+        log.info(applicationContext.getBean(AcmePropertiesPB.class).toString());
+        log.info(applicationContext.getBean(AcmePropertiesCB.class).toString());
+        log.info(applicationContext.getBean(AcmePropertiesMCB.class).toString());
+        log.info(applicationContext.getBean("acme-pers.darren.springboot.example.util.AcmePropertiesPB").toString());
+        log.info(applicationContext.getBean(AnotherComponent.class).toString());
+        final MysqlDataSource source = applicationContext.getBean(MysqlDataSource.class);
+        log.info(source.getServerName() + source.getPort() + source.getDatabaseName() + source.getUrl());
+        log.info(applicationContext.getBean(WebReportConfig.class).toString());
 
-		try {
-			Thread.sleep(5000);
-		} catch (final InterruptedException e) {
-			log.error(e.getMessage(), e);
-		}
+        try {
+            Thread.sleep(5000);
+        } catch (final InterruptedException e) {
+            log.error(e.getMessage(), e);
+        }
 
-		// log.info("Exit code>>>" + SpringApplication.exit(applicationContext));
-	}
+        // log.info("Exit code>>>" + SpringApplication.exit(applicationContext));
+    }
 }
