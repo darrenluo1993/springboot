@@ -38,7 +38,7 @@ public class ExampleController {
         return product;
     }
 
-    @PostMapping("/httpClienTest")
+    @PostMapping("/httpClientTest")
     public String httpClientTest(@RequestBody final String requestBody, final HttpServletRequest request) {
         final StringBuilder builder = new StringBuilder();
         builder.append("sign:").append(request.getHeader("sign")).append(",");
