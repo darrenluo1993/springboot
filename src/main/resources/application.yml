@@ -26,6 +26,18 @@ acme:
 ---
 spring:
     profiles: sit
+    redis:
+        timeout: 6000
+        password: abcd1234
+        sentinel:
+            master: mymaster
+            nodes: 127.0.0.1:26380,127.0.0.1:26381,127.0.0.1:26382
+        lettuce:
+            pool:
+                max-active: 100
+                max-idle: 100
+                min-idle: 10
+                max-wait: 1000
 acme:
     list:
     -   name: my sit name1

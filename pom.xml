@@ -20,7 +20,7 @@
     <properties>
         <java.version>1.8</java.version>
         <fine.version>10.0</fine.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.8.0</commons.io.version>
         <commons.collections.version>4.4</commons.collections.version>
         <sonar.projectKey>darrenluo1993_springboot</sonar.projectKey>
         <sonar.organization>darrenluo1993</sonar.organization>
@@ -71,8 +71,20 @@
             <optional>true</optional>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
