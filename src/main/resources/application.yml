@@ -28,10 +28,13 @@ spring:
     profiles: sit
     redis:
         timeout: 6000
-        password: abcd1234
-        sentinel:
-            master: mymaster
-            nodes: 127.0.0.1:26380,127.0.0.1:26381,127.0.0.1:26382
+        # password: abcd1234
+        # sentinel:
+            # master: mymaster
+            # nodes: 127.0.0.1:26380,127.0.0.1:26381,127.0.0.1:26382
+        cluster:
+            max-redirects: 4
+            nodes: 127.0.0.1:7001,127.0.0.1:7002,127.0.0.1:7003,127.0.0.1:7004
         lettuce:
             pool:
                 max-active: 100
