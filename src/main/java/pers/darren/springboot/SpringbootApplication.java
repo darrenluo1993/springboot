@@ -15,11 +15,11 @@ import com.mysql.cj.jdbc.MysqlDataSource;
 
 import lombok.extern.slf4j.Slf4j;
 import pers.darren.springboot.config.WebReportConfig;
-import pers.darren.springboot.example.util.AcmePropertiesCB;
-import pers.darren.springboot.example.util.AcmePropertiesMCB;
-import pers.darren.springboot.example.util.AcmePropertiesPB;
 import pers.darren.springboot.example.util.ComponentProvider.AnotherComponent;
-import pers.darren.springboot.example.util.JDBCInfo;
+import pers.darren.springboot.props.AcmePropertiesCB;
+import pers.darren.springboot.props.AcmePropertiesMCB;
+import pers.darren.springboot.props.AcmePropertiesPB;
+import pers.darren.springboot.props.JDBCInfo;
 
 @Slf4j
 @SpringBootApplication
@@ -60,7 +60,7 @@ public class SpringbootApplication {
         log.info(applicationContext.getBean(AcmePropertiesPB.class).toString());
         log.info(applicationContext.getBean(AcmePropertiesCB.class).toString());
         log.info(applicationContext.getBean(AcmePropertiesMCB.class).toString());
-        log.info(applicationContext.getBean("acme-pers.darren.springboot.example.util.AcmePropertiesPB").toString());
+        log.info(applicationContext.getBean("acme-pers.darren.springboot.props.AcmePropertiesPB").toString());
         log.info(applicationContext.getBean(AnotherComponent.class).toString());
         final MysqlDataSource source = applicationContext.getBean(MysqlDataSource.class);
         log.info(source.getServerName() + source.getPort() + source.getDatabaseName() + source.getUrl());

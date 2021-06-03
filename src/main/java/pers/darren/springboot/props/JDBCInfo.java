@@ -1,4 +1,4 @@
-package pers.darren.springboot.example.util;
+package pers.darren.springboot.props;
 
 import java.util.List;
 
@@ -18,12 +18,12 @@ import lombok.ToString;
 @ConfigurationProperties("jdbc")
 public class JDBCInfo {
 
-	@NotEmpty
-	private String url;
-	@NotEmpty
-	private String username;
-	@NotEmpty
-	private String password;
-	@NotEmpty
-	private List<String> serverList;
+    @NotEmpty
+    private String url;
+    @NotEmpty
+    private String username;
+    @NotEmpty
+    private String password;
+    @NotEmpty
+    private List<String> serverList;
 }

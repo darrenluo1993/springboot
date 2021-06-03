@@ -1,4 +1,4 @@
-package pers.darren.springboot.example.util;
+package pers.darren.springboot.props;
 
 import static java.time.temporal.ChronoUnit.SECONDS;
 
@@ -17,8 +17,8 @@ import lombok.ToString;
 @ConfigurationProperties
 public class AppSystemProperties {
 
-	@DurationUnit(SECONDS)
-	private Duration sessionTimeout = Duration.ofSeconds(30);
+    @DurationUnit(SECONDS)
+    private Duration sessionTimeout = Duration.ofSeconds(30);
 
-	private Duration readTimeout = Duration.ofMillis(1000);
+    private Duration readTimeout = Duration.ofMillis(1000);
 }
