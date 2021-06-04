@@ -24,6 +24,10 @@ acme:
             name: dev name 2
             description: dev description 2
 ---
+jasypt:
+    encryptor:
+        algorithm: PBEWithMD5AndDES
+        iv-generator-classname: org.jasypt.iv.NoIvGenerator
 spring:
     profiles: sit
     redis:
@@ -41,6 +45,15 @@ spring:
                 max-idle: 100
                 min-idle: 10
                 max-wait: 1000
+    mail:
+        host: smtp.163.com
+        port: 25 # SSL 465/994
+        username: ENC(R81R2OF0hE8lKTMIHMehTSkEnZt4msOWes7cCCU5jVM=)
+        password: ENC(oee2XqwkYO0FnTjDtWykJNKpgyRpgjc7)
+        properties:
+            "[mail.smtp.timeout]": 3000
+            "[mail.smtp.writetimeout]": 5000
+            "[mail.smtp.connectiontimeout]": 5000
 acme:
     list:
     -   name: my sit name1
