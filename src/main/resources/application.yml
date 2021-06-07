@@ -47,13 +47,18 @@ spring:
                 max-wait: 1000
     mail:
         host: smtp.163.com
-        port: 25 # SSL 465/994
+        port: 994 # SSL 465/994 # 普通 25
         username: ENC(R81R2OF0hE8lKTMIHMehTSkEnZt4msOWes7cCCU5jVM=)
-        password: ENC(oee2XqwkYO0FnTjDtWykJNKpgyRpgjc7)
+        password: ENC(5nOt6k0vxDUkvLNgsaUTq3WA32UVQbKZDSKaGyUDC3o=)
         properties:
-            "[mail.smtp.timeout]": 3000
-            "[mail.smtp.writetimeout]": 5000
-            "[mail.smtp.connectiontimeout]": 5000
+            "[mail.debug]": true
+            "[mail.smtp.auth]": true
+            "[mail.smtp.ssl.enable]": true
+            "[mail.smtp.starttls.enable]": true
+            "[mail.smtp.starttls.required]": true
+            "[mail.smtp.timeout]": 30000
+            "[mail.smtp.writetimeout]": 60000
+            "[mail.smtp.connectiontimeout]": 30000
 acme:
     list:
     -   name: my sit name1

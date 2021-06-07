@@ -24,4 +24,9 @@ public class MailSendController {
     public void sendMimeMailMessage(@RequestParam final String subject, @RequestParam final String message) {
         this.mailSendService.sendMimeMailMessage(subject, message);
     }
+
+    @PostMapping("/sendMimeMailMessageWithAttachments")
+    public void sendMimeMailMessageWithAttachments(@RequestParam final String subject, @RequestParam final String message) {
+        this.mailSendService.sendMimeMailMessageWithAttachments(subject, message);
+    }
 }
