@@ -29,4 +29,24 @@ public class MailSendController {
     public void sendMimeMailMessageWithAttachments(@RequestParam final String subject, @RequestParam final String message) {
         this.mailSendService.sendMimeMailMessageWithAttachments(subject, message);
     }
+
+    @PostMapping("/sendMimeMailMessageWithInline")
+    public void sendMimeMailMessageWithInline(@RequestParam final String subject, @RequestParam final String message) {
+        this.mailSendService.sendMimeMailMessageWithInline(subject, message);
+    }
+
+    @PostMapping("/sendMimeMailMessageWithAttachmentsAndInline")
+    public void sendMimeMailMessageWithAttachmentsAndInline(@RequestParam final String subject, @RequestParam final String message) {
+        this.mailSendService.sendMimeMailMessageWithAttachmentsAndInline(subject, message);
+    }
+
+    @PostMapping("/sendMimeMailMessageViaMimeMessagePreparator")
+    public void sendMimeMailMessageViaMimeMessagePreparator(@RequestParam final String subject, @RequestParam final String message) {
+        this.mailSendService.sendMimeMailMessageViaMimeMessagePreparator(subject, message);
+    }
+
+    @PostMapping("/sendMimeMailMessageWithFreeMarkerTemplate")
+    public void sendMimeMailMessageWithFreeMarkerTemplate(@RequestParam final String subject) {
+        this.mailSendService.sendMimeMailMessageWithFreeMarkerTemplate(subject);
+    }
 }
