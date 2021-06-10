@@ -26,9 +26,12 @@
 </style>
 </head>
 <body>
-    <h1 th:if="${user == 'Darren Luo'}" th:text="'Welcome administrator ' + ${user} + '!'"></h1>
-    <h1 th:unless="${user =='Darren Luo'}" th:text="'Welcome ' + ${user} + '!'}"></h1>
-    <p>Our latest product: <a th:href="${latestProduct.url}" th:text="${latestProduct.name}"></a>!</p>
+    <h1 th:if="${user == 'Darren Luo'}">Welcome administrator [[${user}]]!</h1>
+    <h1 th:unless="${user == 'Darren Luo'}">Welcome [[${user}]]!</h1>
+    <!-- <h1 th:if="${user == 'Darren Luo'}" th:text="'Welcome administrator ' + ${user} + '!'"></h1> -->
+    <!-- <h1 th:unless="${user == 'Darren Luo'}" th:text="'Welcome ' + ${user} + '!'}"></h1> -->
+    <p>Our latest product: <a th:href="${latestProduct.url}">[[${latestProduct.name}]]</a>!</p>
+    <!-- <p>Our latest product: <a th:href="${latestProduct.url}" th:text="${latestProduct.name}"></a>!</p> -->
     <div th:if="${not #lists.isEmpty(productList)}">
         <p>Our product list:</p>
         <table class="product-list">
@@ -47,6 +50,24 @@
                 <td th:text="${product.description}"></td>
                 <td th:text="${product.createdBy}"></td>
                 <td th:text="${product.createdTime}"></td>
+            </tr>
+            <tr><td colspan="6"/></tr>
+            <tr th:each="product : ${productList}" th:object="${product}">
+                <td th:text="*{name}"></td>
+                <td th:text="*{price}"></td>
+                <td th:text="*{quantity}"></td>
+                <td th:text="*{description}"></td>
+                <td th:text="*{createdBy}"></td>
+                <td th:text="*{createdTime}"></td>
+            </tr>
+            <tr><td colspan="6"/></tr>
+            <tr th:each="product : ${productList}">
+                <td>[[${product.name}]]</td>
+                <td>[[${product.price}]]</td>
+                <td>[[${product.quantity}]]</td>
+                <td>[[${product.description}]]</td>
+                <td>[[${product.createdBy}]]</td>
+                <td>[[${product.createdTime}]]</td>
             </tr>
         </table>
     </div>
