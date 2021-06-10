@@ -49,4 +49,9 @@ public class MailSendController {
     public void sendMimeMailMessageWithFreeMarkerTemplate(@RequestParam final String subject) {
         this.mailSendService.sendMimeMailMessageWithFreeMarkerTemplate(subject);
     }
+
+    @PostMapping("/sendMimeMailMessageWithThymeleafTemplate")
+    public void sendMimeMailMessageWithThymeleafTemplate(@RequestParam final String subject) {
+        this.mailSendService.sendMimeMailMessageWithThymeleafTemplate(subject);
+    }
 }

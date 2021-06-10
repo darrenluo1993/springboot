@@ -75,4 +75,13 @@ public interface IMailSendService {
      * @param subject 邮件主题
      */
     void sendMimeMailMessageWithFreeMarkerTemplate(String subject);
+
+    /**
+     * 发送Mime邮件消息，使用Thymeleaf模板
+     *
+     * @CreatedBy Darren Luo
+     * @CreatedTime Jun 10, 2021 2:57:35 PM
+     * @param subject 邮件主题
+     */
+    void sendMimeMailMessageWithThymeleafTemplate(String subject);
 }

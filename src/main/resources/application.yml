@@ -60,8 +60,12 @@ spring:
             "[mail.smtp.writetimeout]": 60000
             "[mail.smtp.connectiontimeout]": 30000
     freemarker:
-        suffix: .ftlh # --默认配置
+        suffix: .ftlh # 默认配置
         template-loader-path: classpath:/templates/freemarker
+    thymeleaf:
+        mode: HTML
+        suffix: .html
+        prefix: classpath:/templates/thymeleaf/
 acme:
     list:
     -   name: my sit name1

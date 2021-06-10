@@ -20,6 +20,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.Context;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -36,6 +38,8 @@ public class MailSendServiceImpl implements IMailSendService {
     private JavaMailSender javaMailSender;
     @Autowired
     private Configuration configuration;
+    @Autowired
+    private TemplateEngine templateEngine;
 
     @Override
     public void sendSimpleMailMessage(final String subject, final String message) {
@@ -187,6 +191,39 @@ public class MailSendServiceImpl implements IMailSendService {
         } catch (final UnsupportedEncodingException e) {
             log.error(e.getMessage(), e);
         } catch (final IOException e) {
+            log.error(e.getMessage(), e);
+        }
+    }
+
+    @Override
+    public void sendMimeMailMessageWithThymeleafTemplate(final String subject) {
+        try {
+            final Context context = new Context();
+            context.setVariable("user", "Darren Luo");
+            final Map<String, Object> latestProduct = new HashMap<>();
+            latestProduct.put("name", "Apple");
+            latestProduct.put("url", "/products/Apple.html");
+            context.setVariable("latestProduct", latestProduct);
+            final List<Product> productList = new ArrayList<>(4);
+            productList.add(new Product("产品一", new BigDecimal(1000.5), 10000, "产品一的描述", "Darren Luo", new Date()));
+            productList.add(new Product("产品二", new BigDecimal(1001.5), 10001, "产品二的描述", "Darren Luo", new Date()));
+            productList.add(new Product("产品三", new BigDecimal(1002.5), 10002, "产品三的描述", "Darren Luo", new Date()));
+            productList.add(new Product("产品四", new BigDecimal(1003.5), 10003, "产品四的描述", "Darren Luo", new Date()));
+            context.setVariable("productList", productList);
+            final String message = this.templateEngine.process("productIntroduction", context);
+
+            final MimeMessage mimeMessage = this.javaMailSender.createMimeMessage();
+            final MimeMessageHelper helper = new MimeMessageHelper(mimeMessage);
+            helper.setFrom("darrenluo1993@163.com", "Darren Luo");
+            helper.setSubject(subject);
+            helper.setText(message, true);
+            helper.addTo("luojianlogin@163.com", "163 Email");
+            helper.addCc("luojianlogin@vip.qq.com", "QQ Email");
+            helper.addBcc("luojianlogin@gmail.com", "Google Email");
+            this.javaMailSender.send(helper.getMimeMessage());
+        } catch (final MessagingException e) {
+            log.error(e.getMessage(), e);
+        } catch (final UnsupportedEncodingException e) {
             log.error(e.getMessage(), e);
         }
     }

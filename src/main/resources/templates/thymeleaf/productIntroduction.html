@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Welcome!</title>
+<style type="text/css">
+.product-list {
+    font-size: 14px;
+    text-align: center;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+.product-list tr {
+    height: 25px;
+    line-height: 25px;
+}
+
+.product-list tr th {
+    width: 150px;
+    border: 1px solid #666666;
+}
+
+.product-list tr td {
+    border: 1px solid #666666;
+}
+</style>
+</head>
+<body>
+    <h1 th:if="${user == 'Darren Luo'}" th:text="'Welcome administrator ' + ${user} + '!'"></h1>
+    <h1 th:unless="${user =='Darren Luo'}" th:text="'Welcome ' + ${user} + '!'}"></h1>
+    <p>Our latest product: <a th:href="${latestProduct.url}" th:text="${latestProduct.name}"></a>!</p>
+    <div th:if="${not #lists.isEmpty(productList)}">
+        <p>Our product list:</p>
+        <table class="product-list">
+            <tr>
+                <th>产品名称</th>
+                <th>价格</th>
+                <th>库存</th>
+                <th>描述</th>
+                <th>创建人</th>
+                <th>创建时间</th>
+            </tr>
+            <tr th:each="product : ${productList}">
+                <td th:text="${product.name}"></td>
+                <td th:text="${product.price}"></td>
+                <td th:text="${product.quantity}"></td>
+                <td th:text="${product.description}"></td>
+                <td th:text="${product.createdBy}"></td>
+                <td th:text="${product.createdTime}"></td>
+            </tr>
+        </table>
+    </div>
+    <!-- <p>Home URL: <a th:href="${homeUrl}" th:text="${homeUrl}"></a></p> -->
+</body>
+</html>
