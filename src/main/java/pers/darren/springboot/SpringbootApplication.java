@@ -9,6 +9,7 @@ import org.springframework.boot.context.event.ApplicationPreparedEvent;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.event.ApplicationStartingEvent;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
@@ -23,6 +24,7 @@ import pers.darren.springboot.props.JDBCInfo;
 
 @Slf4j
 @SpringBootApplication
+@ConfigurationPropertiesScan
 public class SpringbootApplication {
 
     public static void main(final String[] args) {

@@ -48,8 +48,8 @@ spring:
     mail:
         host: smtp.163.com
         port: 994 # SSL 465/994 # 普通 25
-        username: ENC(R81R2OF0hE8lKTMIHMehTSkEnZt4msOWes7cCCU5jVM=)
-        password: ENC(5nOt6k0vxDUkvLNgsaUTq3WA32UVQbKZDSKaGyUDC3o=)
+        username: ENC(uBuEdIp9x9Qd32QufRXEQoMv5/wfcI0nISwCEYi/VeI=)
+        password: ENC(GD/7gWvwjmdenkCN/sF6ZdALA519IIBiXGx2KozsVx8=)
         properties:
             "[mail.debug]": true
             "[mail.smtp.auth]": true
