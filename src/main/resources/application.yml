@@ -66,6 +66,25 @@ spring:
         mode: HTML
         suffix: .html
         prefix: classpath:/templates/thymeleaf/
+    jms:
+        pub-sub-domain: true
+    activemq:
+        broker-url: tcp://localhost:61616
+        user: admin
+        password: admin
+        packages:
+            trust-all: true
+        pool:
+            enabled: true
+            idle-timeout: 60000
+            max-connections: 10 # JMS池中最大连接数
+            max-sessions-per-connection: 100 # JMS池中每个连接的最大会话数
+        queue-names:
+            smsQueue: sms-queue
+            mailQueue: mail-queue
+        topic-names:
+            smsTopic: sms-topic
+            mailTopic: mail-topic
 acme:
     list:
     -   name: my sit name1

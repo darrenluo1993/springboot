@@ -11,6 +11,7 @@ import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.jms.annotation.EnableJms;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
@@ -23,6 +24,7 @@ import pers.darren.springboot.props.AcmePropertiesPB;
 import pers.darren.springboot.props.JDBCInfo;
 
 @Slf4j
+@EnableJms
 @SpringBootApplication
 @ConfigurationPropertiesScan
 public class SpringbootApplication {
