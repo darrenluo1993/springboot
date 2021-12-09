@@ -34,4 +34,11 @@ public class ExampleServiceImpl implements IExampleService {
         log.info(this.acmePropertiesCB.toString());
         log.info(this.acmePropertiesMCB.toString());
     }
+
+    @Override
+    public void printProperties() {
+        log.info(this.acmePropertiesPB.toString());
+        log.info(this.acmePropertiesCB.toString());
+        log.info(this.acmePropertiesMCB.toString());
+    }
 }
