@@ -20,8 +20,11 @@
     <properties>
         <java.version>16</java.version>
         <fine.version>10.0</fine.version>
+        <guava.version>31.0.1-jre</guava.version>
         <commons.io.version>2.8.0</commons.io.version>
         <jasypt.starter.version>3.0.3</jasypt.starter.version>
+        <mybatis.starter.version>2.2.1</mybatis.starter.version>
+        <pagehelper.starter.version>1.4.1</pagehelper.starter.version>
         <commons.collections.version>4.4</commons.collections.version>
         <sonar.projectKey>darrenluo1993_springboot</sonar.projectKey>
         <sonar.organization>darrenluo1993</sonar.organization>
@@ -81,6 +84,16 @@
             <artifactId>spring-boot-starter-activemq</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.starter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>${pagehelper.starter.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.messaginghub</groupId>
             <artifactId>pooled-jms</artifactId>
         </dependency>
@@ -125,6 +138,11 @@
             <artifactId>jakarta.validation-api</artifactId>
             <scope>compile</scope>
             <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
         <dependency>
             <groupId>com.finereport</groupId>

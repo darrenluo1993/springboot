@@ -85,6 +85,19 @@ spring:
         topic-names:
             smsTopic: sms-topic
             mailTopic: mail-topic
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/springboot?createDatabaseIfNotExist=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=UTF-8&useServerPrepStmts=true&tinyInt1isBit=false&useSSL=false
+        username: root
+        password: abc123
+mybatis:
+    mapper-locations: classpath:mapper/*Mapper.xml
+    type-aliases-package: pers.darren.springboot.example.model
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql
 acme:
     list:
     -   name: my sit name1

@@ -53,12 +53,14 @@ public class ConfigurationBeanCase implements ApplicationContextAware, Initializ
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        // 以下两行代码从Spring应用上下文中获取到的Product Bean是同一个实例
         logger.info("Product=" + this.applicationContext.getBean("Product", Product.class));
         logger.info("FullProduct=" + this.applicationContext.getBean("FullProduct", Product.class));
     }
 
     @PostConstruct
     private void printProduct() {
+        // 以下两行代码从Spring应用上下文中获取到的Product Bean是同一个实例
         logger.info("Product=" + this.applicationContext.getBean("Product", Product.class));
         logger.info("FullProduct=" + this.applicationContext.getBean("FullProduct", Product.class));
     }
