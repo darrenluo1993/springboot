@@ -12,6 +12,8 @@ public interface IEmployeeService {
 
     void modifyById(Employee employee);
 
+    void modifySelectiveById(Employee employee);
+
     void removeById(Integer id);
 
     PageInfo<Employee> listPagination(Integer pageNum, Integer pageSize);

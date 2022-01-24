@@ -33,6 +33,11 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Override
+    public void modifySelectiveById(final Employee employee) {
+        this.employeeMapper.modifySelectiveById(employee);
+    }
+
+    @Override
     public void removeById(final Integer id) {
         this.employeeMapper.removeById(id);
     }

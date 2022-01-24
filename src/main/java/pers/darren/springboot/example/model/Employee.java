@@ -4,8 +4,12 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 员工信息表
@@ -15,6 +19,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = -7563860498643860143L;
@@ -25,18 +30,22 @@ public class Employee implements Serializable {
     /**
      * 员工姓名
      */
+    @NotBlank(message = "员工姓名不能为空！")
     private String name;
     /**
      * 所属部门
      */
+    @NotBlank(message = "所属部门不能为空！")
     private String department;
     /**
      * 员工职务
      */
+    @NotBlank(message = "员工职务不能为空！")
     private String post;
     /**
      * 员工薪资
      */
+    @NotNull(message = "员工薪资不能为空！")
     private BigDecimal salary;
     /**
      * 创建人

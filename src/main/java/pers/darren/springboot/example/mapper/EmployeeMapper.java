@@ -21,12 +21,12 @@ public interface EmployeeMapper {
                 createdBy,
                 createdTime)
             values
-               (#{name},
-                #{department},
-                #{post},
-                #{salary},
-                #{createdBy},
-                #{createdTime})
+               (#{name,jdbcType=VARCHAR},
+                #{department,jdbcType=VARCHAR},
+                #{post,jdbcType=VARCHAR},
+                #{salary,jdbcType=DECIMAL},
+                #{createdBy,jdbcType=INTEGER},
+                #{createdTime,jdbcType=TIMESTAMP})
             """)
     void add(Employee employee);
 
@@ -34,16 +34,18 @@ public interface EmployeeMapper {
             update
                 employee
             set
-                name = #{name},
-                department = #{department},
-                post = #{post},
-                salary = #{salary},
-                modifiedBy = #{modifiedBy},
-                modifiedTime = #{modifiedTime}
+                name = #{name,jdbcType=VARCHAR},
+                department = #{department,jdbcType=VARCHAR},
+                post = #{post,jdbcType=VARCHAR},
+                salary = #{salary,jdbcType=DECIMAL},
+                modifiedBy = #{modifiedBy,jdbcType=INTEGER},
+                modifiedTime = #{modifiedTime,jdbcType=TIMESTAMP}
             where
-                id = #{id}
+                id = #{id,jdbcType=INTEGER}
             """)
     void modifyById(Employee employee);
+
+    void modifySelectiveById(Employee employee);
 
     @Select("""
             select
@@ -59,11 +61,11 @@ public interface EmployeeMapper {
             from
                 employee
             where
-                id = #{id}
+                id = #{id,jdbcType=INTEGER}
             """)
     Employee getById(Integer id);
 
-    @Delete("delete from employee where id #{id}")
+    @Delete("delete from employee where id #{id,jdbcType=INTEGER}")
     void removeById(Integer id);
 
     @Select("""

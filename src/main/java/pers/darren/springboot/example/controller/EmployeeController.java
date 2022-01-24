@@ -3,6 +3,7 @@ package pers.darren.springboot.example.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class EmployeeController {
     private IEmployeeService employeeService;
 
     @PostMapping("/add")
-    public String add(@RequestBody final Employee employee) {
+    public String add(@RequestBody @Validated final Employee employee) {
         employee.setCreatedBy(1);
         employee.setCreatedTime(new Date());
         this.employeeService.add(employee);
@@ -37,10 +38,19 @@ public class EmployeeController {
     }
 
     @PostMapping("/modifyById")
-    public String modifyById(@RequestBody final Employee employee) {
+    public String modifyById(@RequestBody @Validated final Employee employee) {
         employee.setModifiedBy(1);
         employee.setModifiedTime(new Date());
         this.employeeService.modifyById(employee);
+
+        return "success";
+    }
+
+    @PostMapping("/modifySelectiveById")
+    public String modifySelectiveById(@RequestBody final Employee employee) {
+        employee.setModifiedBy(1);
+        employee.setModifiedTime(new Date());
+        this.employeeService.modifySelectiveById(employee);
 
         return "success";
     }

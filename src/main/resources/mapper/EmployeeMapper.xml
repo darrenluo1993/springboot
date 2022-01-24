@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.darren.springboot.example.mapper.EmployeeMapper">
+    <resultMap id="Employee" type="pers.darren.springboot.example.model.Employee">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="department" jdbcType="VARCHAR" property="department"/>
+        <result column="post" jdbcType="VARCHAR" property="post"/>
+        <result column="salary" jdbcType="DECIMAL" property="salary"/>
+        <result column="createdBy" jdbcType="INTEGER" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="modifiedBy" jdbcType="INTEGER" property="modifiedBy"/>
+        <result column="modifiedTime" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
+    <update id="modifySelectiveById" parameterType="pers.darren.springboot.example.model.Employee">
+        update
+            employee
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="department != null and department != ''">
+                department = #{department,jdbcType=VARCHAR},
+            </if>
+            <if test="post != null and post != ''">
+                post = #{post,jdbcType=VARCHAR},
+            </if>
+            <if test="salary != null">
+                salary = #{salary,jdbcType=DECIMAL},
+            </if>
+            <if test="modifiedBy != null">
+                modifiedBy = #{modifiedBy,jdbcType=INTEGER},
+            </if>
+            <if test="modifiedTime != null">
+                modifiedTime = #{modifiedTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where
+            id = #{id,jdbcType=INTEGER}
+    </update>
+</mapper>
