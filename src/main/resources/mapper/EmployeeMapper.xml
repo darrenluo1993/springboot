@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="pers.darren.springboot.example.mapper.EmployeeMapper">
-    <resultMap id="Employee" type="pers.darren.springboot.example.model.Employee">
-        <id column="id" jdbcType="INTEGER" property="id"/>
-        <result column="name" jdbcType="VARCHAR" property="name"/>
-        <result column="department" jdbcType="VARCHAR" property="department"/>
-        <result column="post" jdbcType="VARCHAR" property="post"/>
-        <result column="salary" jdbcType="DECIMAL" property="salary"/>
-        <result column="createdBy" jdbcType="INTEGER" property="createdBy"/>
-        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
-        <result column="modifiedBy" jdbcType="INTEGER" property="modifiedBy"/>
-        <result column="modifiedTime" jdbcType="TIMESTAMP" property="modifiedTime"/>
-    </resultMap>
+    <!-- 创建人：Darren Luo -->
+    <!-- 创建时间：2022年2月18日 9时17分 -->
+    <!-- 用途描述：根据参数值有选择性的更新员工信息 -->
     <update id="modifySelectiveById" parameterType="pers.darren.springboot.example.model.Employee">
         update
             employee
@@ -38,4 +30,45 @@
         where
             id = #{id,jdbcType=INTEGER}
     </update>
+
+    <!-- 创建人：Darren Luo -->
+    <!-- 创建时间：2022年2月18日 9时27分 -->
+    <!-- 用途描述：根据动态参数获取员工信息 -->
+    <select id="getEmployeeViaDynamicParams" parameterType="pers.darren.springboot.example.model.EmployeeAO" resultMap="Employee">
+        select
+            id,
+            name,
+            department,
+            post,
+            salary,
+            createdBy,
+            createdTime,
+            modifiedBy,
+            modifiedTime
+        from
+            employee
+        <where>
+            <if test="name != null and name != ''">
+                and name = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="department != null and department != ''">
+                and department = #{department,jdbcType=VARCHAR}
+            </if>
+            <if test="post != null and post != ''">
+                and post = #{post,jdbcType=VARCHAR}
+            </if>
+        </where>
+    </select>
+
+    <resultMap id="Employee" type="pers.darren.springboot.example.model.Employee">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="department" jdbcType="VARCHAR" property="department"/>
+        <result column="post" jdbcType="VARCHAR" property="post"/>
+        <result column="salary" jdbcType="DECIMAL" property="salary"/>
+        <result column="createdBy" jdbcType="INTEGER" property="createdBy"/>
+        <result column="createdTime" jdbcType="TIMESTAMP" property="createdTime"/>
+        <result column="modifiedBy" jdbcType="INTEGER" property="modifiedBy"/>
+        <result column="modifiedTime" jdbcType="TIMESTAMP" property="modifiedTime"/>
+    </resultMap>
 </mapper>

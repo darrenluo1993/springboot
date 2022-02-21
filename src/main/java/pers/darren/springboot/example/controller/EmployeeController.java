@@ -1,20 +1,14 @@
 package pers.darren.springboot.example.controller;
 
-import java.util.Date;
-
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.github.pagehelper.PageInfo;
-
+import org.springframework.web.bind.annotation.*;
 import pers.darren.springboot.example.model.Employee;
+import pers.darren.springboot.example.model.EmployeeAO;
 import pers.darren.springboot.example.service.IEmployeeService;
+
+import java.util.Date;
 
 @RestController
 @RequestMapping("/employee")
@@ -64,5 +58,23 @@ public class EmployeeController {
     @GetMapping("/listPagination")
     public PageInfo<Employee> listPagination(final Integer pageNum, final Integer pageSize) {
         return this.employeeService.listPagination(pageNum, pageSize);
+    }
+
+    @PostMapping("/transactionControlCase1")
+    public String transactionControlCase1(@RequestBody @Validated final EmployeeAO employeeAO) {
+        this.employeeService.transactionControlCase1(employeeAO);
+        return "success";
+    }
+
+    @PostMapping("/transactionControlCase2")
+    public String transactionControlCase2(@RequestBody @Validated final EmployeeAO employeeAO) {
+        this.employeeService.transactionControlCase2(employeeAO);
+        return "success";
+    }
+
+    @PostMapping("/transactionControlCase3")
+    public String transactionControlCase3(@RequestBody @Validated final EmployeeAO employeeAO) {
+        this.employeeService.transactionControlCase3(employeeAO);
+        return "success";
     }
 }

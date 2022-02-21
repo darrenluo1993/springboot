@@ -1,21 +1,14 @@
 package pers.darren.springboot;
 
-import static org.springframework.boot.Banner.Mode.CONSOLE;
-
+import com.mysql.cj.jdbc.MysqlDataSource;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
-import org.springframework.boot.context.event.ApplicationPreparedEvent;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.boot.context.event.ApplicationStartedEvent;
-import org.springframework.boot.context.event.ApplicationStartingEvent;
+import org.springframework.boot.context.event.*;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jms.annotation.EnableJms;
-
-import com.mysql.cj.jdbc.MysqlDataSource;
-
-import lombok.extern.slf4j.Slf4j;
 import pers.darren.springboot.config.WebReportConfig;
 import pers.darren.springboot.example.util.ComponentProvider.AnotherComponent;
 import pers.darren.springboot.props.AcmePropertiesCB;
@@ -23,10 +16,13 @@ import pers.darren.springboot.props.AcmePropertiesMCB;
 import pers.darren.springboot.props.AcmePropertiesPB;
 import pers.darren.springboot.props.JDBCInfo;
 
+import static org.springframework.boot.Banner.Mode.CONSOLE;
+
 @Slf4j
 @EnableJms
 @SpringBootApplication
 @ConfigurationPropertiesScan
+@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)
 public class SpringbootApplication {
 
     public static void main(final String[] args) {

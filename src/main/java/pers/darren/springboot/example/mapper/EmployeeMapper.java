@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import pers.darren.springboot.example.model.Employee;
+import pers.darren.springboot.example.model.EmployeeAO;
 
 @Mapper
 public interface EmployeeMapper {
@@ -85,4 +86,6 @@ public interface EmployeeMapper {
                 id
             """)
     List<Employee> listAll();
+
+    Employee getEmployeeViaDynamicParams(EmployeeAO employeeAO);
 }

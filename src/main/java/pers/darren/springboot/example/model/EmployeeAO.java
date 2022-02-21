@@ -12,17 +12,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 员工信息
+ * 员工信息AO（Argument Object）
  *
  * @CreatedBy Darren Luo
- * @CreatedTime Jan 20, 2022 9:38:29 AM
+ * @CreatedTime 2022年2月18日 9时38分
  */
 @Getter
 @Setter
 @ToString
-public class Employee implements Serializable {
+public class EmployeeAO implements Serializable {
     @Serial
-    private static final long serialVersionUID = -7563860498643860143L;
+    private static final long serialVersionUID = -5504987724162716780L;
     /**
      * 员工ID
      */
