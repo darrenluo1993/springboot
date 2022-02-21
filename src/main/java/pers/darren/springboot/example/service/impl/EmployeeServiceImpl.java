@@ -58,6 +58,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
         return new PageInfo<>(this.employeeMapper.listAll());
     }
 
+    /**
+     * 使用@Transactional注解注释方法进行事务控制
+     * 优点：简单快捷
+     * 缺点：事务粒度粗，容易造成大事务，从而导致死锁的情况
+     *
+     * @param employeeAO
+     * @CreatedBy Darren Luo
+     * @CreatedTime 2022年2月21日 15时28分
+     */
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void transactionControlCase1(EmployeeAO employeeAO) {
@@ -84,6 +93,15 @@ public class EmployeeServiceImpl implements IEmployeeService {
         this.employeeMapper.modifyById(employee);
     }
 
+    /**
+     * 使用TransactionTemplate，通过编码进行事务控制
+     * 优点：事务粒度自由控制，可以避免出现大事务
+     * 缺点：较于@Transactional注解，需要编写更多的代码
+     *
+     * @param employeeAO
+     * @CreatedBy Darren Luo
+     * @CreatedTime 2022年2月21日 15时58分
+     */
     @Override
     public void transactionControlCase2(EmployeeAO employeeAO) {
         // 根据员工id查询员工信息并打印
@@ -109,10 +127,20 @@ public class EmployeeServiceImpl implements IEmployeeService {
             employee.setModifiedTime(new Date());
             this.employeeMapper.modifyById(employee);
 
-            return null;
+            return true;
         });
     }
 
+    /**
+     * 当前方法需要调用当前类的其它具有事务控制的方法
+     * 则需通过AopContext.currentProxy方法获取当前类的代理对象
+     * 然后再通过获取到的代理类对象调用类中其它具有事务控制的方法
+     * 注意：需要在启动类上加上@EnableAspectJAutoProxy(proxyTargetClass = true, exposeProxy = true)注解
+     *
+     * @param employeeAO
+     * @CreatedBy Darren Luo
+     * @CreatedTime 2022年2月21日 16时59分
+     */
     @Override
     public void transactionControlCase3(EmployeeAO employeeAO) {
         // 根据员工id查询员工信息并打印
@@ -122,7 +150,7 @@ public class EmployeeServiceImpl implements IEmployeeService {
     }
 
     @Transactional(rollbackFor = Exception.class)
-    public void addAndModifyEmployee(EmployeeAO employeeAO) {
+    void addAndModifyEmployee(EmployeeAO employeeAO) {
         // 新增员工信息
         Employee employee = new Employee();
         copyProperties(employeeAO, employee, "id", "modifiedBy", "modifiedTime");
