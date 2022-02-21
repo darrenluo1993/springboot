@@ -60,8 +60,8 @@ public class EmployeeServiceImpl implements IEmployeeService {
 
     /**
      * 使用@Transactional注解注释方法进行事务控制
-     * 优点：简单快捷
-     * 缺点：事务粒度粗，容易造成大事务，从而导致死锁的情况
+     * 优点：简单快捷，一个注解即可搞定
+     * 缺点：事务粒度粗，容易造成大事务（事务中有耗时较长的查询或远程API调用等等），从而导致死锁的情况
      *
      * @param employeeAO
      * @CreatedBy Darren Luo
