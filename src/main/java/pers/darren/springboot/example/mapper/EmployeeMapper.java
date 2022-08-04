@@ -1,15 +1,10 @@
 package pers.darren.springboot.example.mapper;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
-
+import org.apache.ibatis.annotations.*;
 import pers.darren.springboot.example.model.Employee;
 import pers.darren.springboot.example.model.EmployeeAO;
+
+import java.util.List;
 
 @Mapper
 public interface EmployeeMapper {
@@ -66,7 +61,7 @@ public interface EmployeeMapper {
             """)
     Employee getById(Integer id);
 
-    @Delete("delete from employee where id #{id,jdbcType=INTEGER}")
+    @Delete("delete from employee where id = #{id,jdbcType=INTEGER}")
     void removeById(Integer id);
 
     @Select("""

@@ -20,6 +20,7 @@
     <properties>
         <java.version>16</java.version>
         <fine.version>10.0</fine.version>
+        <hutool.version>5.8.5</hutool.version>
         <guava.version>31.0.1-jre</guava.version>
         <commons.io.version>2.8.0</commons.io.version>
         <jasypt.starter.version>3.0.3</jasypt.starter.version>
@@ -147,6 +148,11 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${guava.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
         <dependency>
             <groupId>com.finereport</groupId>

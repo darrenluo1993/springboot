@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="pers.darren.springboot.example.mapper.CustomerMapper">
+    <resultMap id="Customer" type="pers.darren.springboot.example.model.Customer">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="fullName" column="fullName" jdbcType="VARCHAR"/>
+        <result property="mobilePhone" column="mobilePhone" jdbcType="VARCHAR"/>
+    </resultMap>
+</mapper>

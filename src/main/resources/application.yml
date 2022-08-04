@@ -93,6 +93,7 @@ spring:
 mybatis:
     mapper-locations: classpath:mapper/*Mapper.xml
     type-aliases-package: pers.darren.springboot.example.model
+    type-handlers-package: pers.darren.springboot.mybatis.typehandler
 pagehelper:
     helperDialect: mysql
     reasonable: true
