@@ -18,14 +18,14 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>16</java.version>
+        <java.version>17</java.version>
         <fine.version>10.0</fine.version>
-        <hutool.version>5.8.5</hutool.version>
-        <guava.version>31.0.1-jre</guava.version>
+        <hutool.version>5.8.8</hutool.version>
+        <guava.version>31.1-jre</guava.version>
         <commons.io.version>2.8.0</commons.io.version>
-        <jasypt.starter.version>3.0.3</jasypt.starter.version>
-        <mybatis.starter.version>2.2.1</mybatis.starter.version>
-        <pagehelper.starter.version>1.4.1</pagehelper.starter.version>
+        <jasypt.starter.version>3.0.4</jasypt.starter.version>
+        <mybatis.starter.version>2.2.2</mybatis.starter.version>
+        <pagehelper.starter.version>1.4.5</pagehelper.starter.version>
         <commons.collections.version>4.4</commons.collections.version>
         <sonar.projectKey>darrenluo1993_springboot</sonar.projectKey>
         <sonar.organization>darrenluo1993</sonar.organization>
