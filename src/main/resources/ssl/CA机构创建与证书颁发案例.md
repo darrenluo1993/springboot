@@ -50,7 +50,7 @@ ST (State): Hunan
 L (Locality): ChangSha
 O (Organization): Individual
 OU (Organizational Unit): Darren Luo
-CN (Common Name): LOCALHOST
+CN (Common Name): LOCALHOST #需与CA保持一致
 EMAIL (Email Address): darrenluo1993@163.com
 ```
 ##### 4.2、颁发客户端证书
@@ -69,7 +69,7 @@ ST (State): Hunan
 L (Locality): ChangSha
 O (Organization): Individual
 OU (Organizational Unit): Darren Luo
-CN (Common Name): LOCALHOST
+CN (Common Name): LOCALHOST #需与CA保持一致
 EMAIL (Email Address): darrenluo1993@163.com
 ```
 #### 5、生成pkcs12格式证书（这一步也不是必须，只是用在某些场合方便而已）
