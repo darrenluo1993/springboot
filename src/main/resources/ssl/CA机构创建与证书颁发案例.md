@@ -82,5 +82,6 @@ openssl pkcs12 -export -in client.crt -inkey client.key -out client.p12 -name cl
 #### 6、服务器端，将客户端证书导入为受信任的证书
 ```sh
 # 服务器端，将客户端证书导入为受信任的证书
+# 如需信任多个客户端证书，重复执行以下语句导入多个即可，注意保证alias唯一
 keytool -import -trustcacerts -file client.crt -alias client -storepass abcd1234 -keystore client.jks
 ```
