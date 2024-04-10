@@ -1,14 +1,13 @@
 package pers.darren.springboot.props;
 
-import java.net.InetAddress;
-import java.util.List;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.ConstructorBinding;
-import org.springframework.boot.context.properties.bind.DefaultValue;
-
 import lombok.Getter;
 import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.bind.ConstructorBinding;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+
+import java.net.InetAddress;
+import java.util.List;
 
 /**
  * 通过构造函数给成员变量绑定属性值

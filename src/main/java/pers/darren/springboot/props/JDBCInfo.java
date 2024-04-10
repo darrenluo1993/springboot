@@ -1,15 +1,13 @@
 package pers.darren.springboot.props;
 
-import java.util.List;
-
-import javax.validation.constraints.NotEmpty;
-
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.validation.annotation.Validated;
-
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.validation.annotation.Validated;
+
+import java.util.List;
 
 @Getter
 @Setter

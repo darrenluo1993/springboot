@@ -1,6 +1,7 @@
 package pers.darren.springboot.example.model;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
+
 import java.io.Serial;
 import java.io.Serializable;
 

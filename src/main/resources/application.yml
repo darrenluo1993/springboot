@@ -3,20 +3,22 @@ spring:
         active: sit
 acme:
     list:
-    -   name: my name
-        description: my description
-    -   name: another name
-        description: another description
+        -   name: my name
+            description: my description
+        -   name: another name
+            description: another description
     map:
         key1:
             name: my name 1
             description: my description 1
 ---
 spring:
-    profiles: dev
+    config:
+        activate:
+            on-profile: dev
 acme:
     list:
-    -   name: my another name
+        -   name: my another name
     map:
         key1:
             name: dev name 1
@@ -29,11 +31,14 @@ jasypt:
         algorithm: PBEWithMD5AndDES
         iv-generator-classname: org.jasypt.iv.NoIvGenerator
 spring:
-    profiles: sit
-    redis:
-        timeout: 6000
-        # password: abcd1234
-        # sentinel:
+    config:
+        activate:
+            on-profile: sit
+    data:
+        redis:
+            timeout: 6000
+            # password: abcd1234
+            # sentinel:
             # master: mymaster
             # nodes: 127.0.0.1:26380,127.0.0.1:26381,127.0.0.1:26382
         cluster:
@@ -101,10 +106,10 @@ pagehelper:
     params: count=countSql
 acme:
     list:
-    -   name: my sit name1
-        description: my sit description1
-    -   name: my sit name2
-        description: my sit description2
+        -   name: my sit name1
+            description: my sit description1
+        -   name: my sit name2
+            description: my sit description2
     map:
         key1:
             name: sit name 1
